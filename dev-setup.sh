@@ -14,7 +14,7 @@ echo "🚀 Setting up Akave Python SDK development environment..."
 echo ""
 
 echo "📍 Checking Python version..."
-python_version=$($PYTHON_BIN --version 2>&1 | awk '{print $2}')source .venv/bin/activate && python -m pytest tests/unit/test_encryption.py --cov=private.encryption.encryption --cov-report=term-missing -q
+python_version=$($PYTHON_BIN --version 2>&1 | awk '{print $2}')
 echo "✅ Found Python $python_version"
 echo ""
 
