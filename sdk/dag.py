@@ -1,12 +1,14 @@
-import io
 import hashlib
-from typing import List, Optional, Any, BinaryIO, Tuple
+import io
 from dataclasses import dataclass
+from typing import Any, BinaryIO, List, Optional, Tuple
 
 try:
+    from ipld_dag_pb import PBLink, PBNode
+    from ipld_dag_pb import code as dag_pb_code
+    from ipld_dag_pb import decode, encode, prepare
     from multiformats import CID, multihash
     from multiformats.multicodec import multicodec
-    from ipld_dag_pb import PBNode, PBLink, encode, decode, prepare, code as dag_pb_code
 
     IPLD_AVAILABLE = True
 except ImportError:
@@ -43,8 +45,8 @@ try:
 except ImportError:
     DAG_PB_AVAILABLE = False
 
+from .config import DAG_PB_CODEC, DEFAULT_CID_VERSION, RAW_CODEC
 from .model import FileBlockUpload
-from .config import DAG_PB_CODEC, RAW_CODEC, DEFAULT_CID_VERSION
 
 CID_VERSION = 1
 

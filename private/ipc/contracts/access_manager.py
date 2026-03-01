@@ -1,8 +1,9 @@
-from typing import List, Tuple, Optional
+import json
+from typing import List, Optional, Tuple
+
 from eth_typing import HexAddress, HexStr
 from web3 import Web3
 from web3.contract import Contract
-import json
 
 
 class AccessManagerContract:

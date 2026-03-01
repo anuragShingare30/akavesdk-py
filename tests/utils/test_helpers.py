@@ -2,7 +2,7 @@ import hashlib
 import secrets
 import time
 from typing import Any, Dict, List
-from unittest.mock import Mock, MagicMock
+from unittest.mock import MagicMock, Mock
 
 
 def calculate_sha256(data: bytes) -> str:

@@ -1,5 +1,7 @@
+from typing import Dict, List, Optional
+
 import web3
-from typing import Dict, Optional, List
+
 from sdk.config import KNOWN_ERROR_STRINGS, validate_hex_string
 
 # Dictionary to store the mapping from error hash (selector) to error string

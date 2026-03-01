@@ -2,16 +2,17 @@
 # See LICENSE for copying information.
 
 import os
+import secrets
 import sys
 import time
-import secrets
-import pytest
 from typing import Optional
 from unittest.mock import Mock, patch
 
+import pytest
+
+from ..ipctest.ipctest import IPCTestError, new_funded_account, to_wei
 from .client import Client, Config, TransactionFailedError
 from .ipc import StorageData, sign_block
-from ..ipctest.ipctest import new_funded_account, to_wei, IPCTestError
 
 DIAL_URI = os.getenv("DIAL_URI", "")
 PRIVATE_KEY = os.getenv("PRIVATE_KEY", "")

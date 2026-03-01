@@ -3,14 +3,15 @@
 
 import os
 import time
+
 import pytest
 from eth_account import Account
 from web3 import Web3
 from web3.exceptions import BlockNotFound
 
-from .batch_client import BatchClient, BatchReceiptRequest, BatchBlockResponse
-from .client import Client, Config
 from ..ipctest.ipctest import new_funded_account, to_wei
+from .batch_client import BatchBlockResponse, BatchClient, BatchReceiptRequest
+from .client import Client, Config
 
 DIAL_URI = os.getenv("DIAL_URI", "")
 PRIVATE_KEY = os.getenv("PRIVATE_KEY", "")

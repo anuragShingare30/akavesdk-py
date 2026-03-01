@@ -4,7 +4,8 @@
 from __future__ import annotations
 
 import json
-from typing import Dict, Any, List, Optional
+from typing import Any, Dict, List, Optional
+
 from web3.exceptions import BlockNotFound
 
 

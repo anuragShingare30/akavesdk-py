@@ -1,9 +1,12 @@
-import grpc
-import time
-import threading
 import logging
-from typing import Dict, Optional, Tuple, Callable
+import threading
+import time
+from typing import Callable, Dict, Optional, Tuple
+
+import grpc
+
 from private.pb import ipcnodeapi_pb2_grpc
+
 from .config import SDKError
 
 

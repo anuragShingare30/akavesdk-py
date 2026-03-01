@@ -1,5 +1,7 @@
-import grpc
 import logging
+
+import grpc
+
 from ..config import SDKError
 
 

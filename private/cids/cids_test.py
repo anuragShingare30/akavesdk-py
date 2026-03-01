@@ -1,7 +1,8 @@
-import pytest
+import os
 import secrets
 import sys
-import os
+
+import pytest
 
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 if project_root not in sys.path:
@@ -16,9 +17,9 @@ except ImportError:
     pytest.skip("multiformats library not available", allow_module_level=True)
 
 try:
-    from private.cids.cids import verify_raw, verify, CIDError
+    from private.cids.cids import CIDError, verify, verify_raw
 except ImportError:
-    from .cids import verify_raw, verify, CIDError
+    from .cids import CIDError, verify, verify_raw
 
 
 def test_verify_raw_valid_cidv0_matches():

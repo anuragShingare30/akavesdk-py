@@ -1,8 +1,10 @@
 # Copyright (C) 2025 Akave
 # See LICENSE for copying information.
 
-import pytest
 import time
+
+import pytest
+
 from .retry import WithRetry
 
 

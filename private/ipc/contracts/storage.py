@@ -1,8 +1,9 @@
-from typing import List, Tuple, Optional
+from typing import List, Optional, Tuple
+
+from eth_account import Account
 from eth_typing import HexAddress, HexStr
 from web3 import Web3
 from web3.contract import Contract
-from eth_account import Account
 
 
 def get_raw_transaction(signed_tx):

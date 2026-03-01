@@ -1,14 +1,15 @@
 # Copyright (C) 2025 Akave
 # See LICENSE for copying information.
 
-import sys
 import os
+import sys
+from typing import Any, Dict, List
+
 import pytest
-from typing import Dict, List, Any
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
 
-from private.eip712.eip712 import sign, recover_signer_address, Domain, TypedData
+from private.eip712.eip712 import Domain, TypedData, recover_signer_address, sign
 
 
 class TestSignatureAgainstContract:

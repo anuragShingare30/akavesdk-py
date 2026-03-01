@@ -2,6 +2,7 @@
 # See LICENSE for copying information.
 
 import os
+
 import pytest
 
 CALIBRATION_WARM_STORAGE_CONTRACT = "0x02925630df557F957f70E112bA06e50965417CA0"
@@ -26,9 +27,9 @@ def pick_server_url() -> str:
 # temporary solution to calculate piece CID
 def calculate_piece_cid(data: bytes) -> str:
     try:
+        import os
         import subprocess
         import tempfile
-        import os
 
         with tempfile.NamedTemporaryFile(mode="wb", delete=False) as f:
             f.write(data)

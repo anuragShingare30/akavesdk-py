@@ -1,14 +1,14 @@
 from .config import (
-    SDKError,
     BLOCK_SIZE,
-    MIN_BUCKET_NAME_LENGTH,
+    DAG_PB_CODEC,
+    DEFAULT_CID_VERSION,
     ENCRYPTION_OVERHEAD,
+    MIN_BUCKET_NAME_LENGTH,
     MIN_FILE_SIZE,
+    RAW_CODEC,
     BlockSize,
     EncryptionOverhead,
-    DEFAULT_CID_VERSION,
-    DAG_PB_CODEC,
-    RAW_CODEC,
+    SDKError,
 )
 
 __all__ = [

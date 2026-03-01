@@ -1,5 +1,5 @@
-from unittest.mock import Mock, MagicMock
 from typing import Any, Dict, List, Optional
+from unittest.mock import MagicMock, Mock
 
 
 class MockIPCClient:

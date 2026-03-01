@@ -1,7 +1,8 @@
+import os
 import struct
 import sys
-import os
-from typing import Dict, List, Any, Union
+from typing import Any, Dict, List, Union
+
 from Crypto.Hash import keccak
 from eth_keys import keys
 from eth_utils import to_checksum_address

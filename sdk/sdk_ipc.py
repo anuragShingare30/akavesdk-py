@@ -1,36 +1,37 @@
-import time
-import logging
 import binascii
-import io
-import math
 import concurrent.futures
+import io
+import logging
+import math
+import queue
 import secrets
 import threading
-import queue
-from hashlib import sha256
-from typing import List, Optional, Callable, Dict, Any, Union, Tuple
-from google.protobuf.timestamp_pb2 import Timestamp
+import time
 from datetime import datetime
-import grpc
+from hashlib import sha256
+from typing import Any, Callable, Dict, List, Optional, Tuple, Union
 
-from .config import MIN_BUCKET_NAME_LENGTH, SDKError, SDKConfig, BLOCK_SIZE, ENCRYPTION_OVERHEAD
-from .dag import DAGRoot, build_dag, extract_block_data
+import grpc
+from google.protobuf.timestamp_pb2 import Timestamp
+
+from .config import BLOCK_SIZE, ENCRYPTION_OVERHEAD, MIN_BUCKET_NAME_LENGTH, SDKConfig, SDKError
 from .connection import ConnectionPool
+from .dag import DAGRoot, build_dag, extract_block_data
 from .model import (
-    IPCBucketCreateResult,
-    IPCBucket,
-    IPCFileMeta,
-    IPCFileListItem,
-    IPCFileMetaV2,
-    IPCFileChunkUploadV2,
-    FileBlockUpload,
-    FileBlockDownload,
     Chunk,
-    IPCFileDownload,
+    FileBlockDownload,
+    FileBlockUpload,
     FileChunkDownload,
+    IPCBucket,
+    IPCBucketCreateResult,
+    IPCFileChunkUploadV2,
+    IPCFileDownload,
+    IPCFileListItem,
+    IPCFileMeta,
+    IPCFileMetaV2,
     IPCFileUpload,
-    new_ipc_file_upload,
     UploadState,
+    new_ipc_file_upload,
 )
 
 
@@ -40,7 +41,7 @@ class TxWaitSignal:
         self.Transaction = Transaction
 
 
-from private.encryption import encrypt, derive_key, decrypt
+from private.encryption import decrypt, derive_key, encrypt
 from private.pb import ipcnodeapi_pb2, ipcnodeapi_pb2_grpc
 
 try:
@@ -51,8 +52,8 @@ except ImportError:
 try:
     from eth_account import Account
     from eth_account.messages import encode_typed_data
-    from eth_utils import to_checksum_address
     from eth_keys import keys
+    from eth_utils import to_checksum_address
 except ImportError:
     pass
 
@@ -1029,7 +1030,7 @@ class IPC:
         bucket_id: bytes,
     ) -> tuple:
         try:
-            from private.eip712 import sign, Domain, TypedData
+            from private.eip712 import Domain, TypedData, sign
 
             nonce_bytes = nonce.to_bytes(32, byteorder="big")
             chunk_cid_obj = CID.decode(chunk_cid)

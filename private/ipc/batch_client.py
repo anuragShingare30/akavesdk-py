@@ -5,10 +5,11 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
-from typing import List, Optional, Any, Dict
+from typing import Any, Dict, List, Optional
+
+from eth_typing import HexStr
 from web3 import Web3
 from web3.exceptions import BlockNotFound, TransactionNotFound
-from eth_typing import HexStr
 
 from .block_parser import block_from_json
 

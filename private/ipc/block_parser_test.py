@@ -2,6 +2,7 @@
 # See LICENSE for copying information.
 
 import json
+
 import pytest
 from eth_account import Account
 from web3 import Web3

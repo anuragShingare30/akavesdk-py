@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import secrets
 from dataclasses import dataclass
-from typing import Dict, List, Any
+from typing import Any, Dict, List
 
 from eth_utils import keccak, to_bytes, to_checksum_address
 
@@ -15,13 +15,17 @@ except ImportError:
     CID = None
 
 try:
-    from ..eip712 import Domain as EIP712Domain, TypedData as EIP712TypedData, sign as eip712_sign
+    from ..eip712 import Domain as EIP712Domain
+    from ..eip712 import TypedData as EIP712TypedData
+    from ..eip712 import sign as eip712_sign
 except ImportError:
-    import sys
     import os
+    import sys
 
     sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
-    from eip712 import Domain as EIP712Domain, TypedData as EIP712TypedData, sign as eip712_sign
+    from eip712 import Domain as EIP712Domain
+    from eip712 import TypedData as EIP712TypedData
+    from eip712 import sign as eip712_sign
 
 
 @dataclass

@@ -1,12 +1,13 @@
 # Copyright (C) 2025 Akave
 # See LICENSE for copying information.
 
-import os
 import json
+import os
+
 import pytest
 import requests
-from web3 import Web3
 from eth_account import Account
+from web3 import Web3
 
 from ..ipctest.ipctest import new_funded_account, to_wei, wait_for_tx
 
@@ -56,7 +57,7 @@ def test_contract_pdp():
 
     challenge_finality = 3
 
-    from .contracts.pdp_verifier import deploy_pdp_verifier, PDPVerifierMetaData
+    from .contracts.pdp_verifier import PDPVerifierMetaData, deploy_pdp_verifier
     from .contracts.sink import deploy_sink
 
     verifier_address, tx_hash = deploy_pdp_verifier(web3, pk, challenge_finality)

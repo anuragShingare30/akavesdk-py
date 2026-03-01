@@ -2,7 +2,8 @@
 # See LICENSE for copying information.
 
 import pytest
-from .ipc import generate_nonce, calculate_file_id, calculate_bucket_id, from_byte_array_cid
+
+from .ipc import calculate_bucket_id, calculate_file_id, from_byte_array_cid, generate_nonce
 
 try:
     from multiformats import CID

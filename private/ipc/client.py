@@ -1,13 +1,15 @@
-import time
 import threading
+import time
 from dataclasses import dataclass
-from typing import Optional, List, Dict, Any, Union
-from web3 import Web3
-from web3.middleware.proof_of_authority import ExtraDataToPOAMiddleware
-from web3.exceptions import TransactionNotFound
+from typing import Any, Dict, List, Optional, Union
+
 from eth_account import Account
 from eth_account.signers.local import LocalAccount
-from .contracts import StorageContract, AccessManagerContract
+from web3 import Web3
+from web3.exceptions import TransactionNotFound
+from web3.middleware.proof_of_authority import ExtraDataToPOAMiddleware
+
+from .contracts import AccessManagerContract, StorageContract
 from .ipc import StorageData, sign_block
 
 
@@ -124,12 +126,12 @@ class Client:
 
         try:
             from .contracts import (
-                deploy_erc1967_proxy,
-                deploy_access_manager,
-                deploy_list_policy,
-                StorageContract,
                 AccessManagerContract,
                 ListPolicyMetaData,
+                StorageContract,
+                deploy_access_manager,
+                deploy_erc1967_proxy,
+                deploy_list_policy,
             )
 
             try:

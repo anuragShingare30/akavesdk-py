@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-from typing import Optional, Dict, Any
+from typing import Any, Dict, Optional
 
+from eth_account.signers.local import LocalAccount
 from eth_typing import Address, HexStr
 from web3 import Web3
 from web3.contract import Contract
-from eth_account.signers.local import LocalAccount
 
 
 class AkaveTokenMetaData:

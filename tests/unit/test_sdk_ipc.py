@@ -1,9 +1,10 @@
-import pytest
 from unittest.mock import Mock
 
-from sdk.sdk_ipc import IPC
+import pytest
+
 from sdk.config import SDKConfig
 from sdk.model import IPCBucketCreateResult
+from sdk.sdk_ipc import IPC
 
 
 class TestCreateBucket:
