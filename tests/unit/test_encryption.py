@@ -1,6 +1,5 @@
 import pytest
-from unittest.mock import Mock, patch
-import os
+
 
 from private.encryption.encryption import derive_key, make_gcm_cipher, encrypt, decrypt, KEY_LENGTH
 
@@ -732,3 +731,9 @@ class TestConcurrentUsage:
         for (encrypted, info), (original_data, _) in zip(encrypted_list, test_data):
             decrypted = decrypt(base_key, encrypted, info)
             assert decrypted == original_data
+
+
+def test_placeholder():
+    """Placeholder test to keep file valid."""
+    pass
+
