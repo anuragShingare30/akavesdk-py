@@ -1,10 +1,14 @@
-import os
 import hashlib
-from typing import Tuple
+import os
+from typing import Tuple, cast
+
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.primitives.kdf.hkdf import HKDF
 from cryptography.hazmat.primitives import hashes
 from typing import Tuple, cast
+
 
 KEY_LENGTH = 32
 
